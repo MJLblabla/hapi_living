@@ -1,0 +1,5 @@
+include ':comp_rtmroom'
+include ':comp_living'
+include ':comp_im'
+include ':app'
+rootProject.name = "hapi_living"
