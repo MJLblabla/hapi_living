@@ -1,3 +1,4 @@
+include ':comp_chat'
 include ':comp_rtmroom'
 include ':comp_living'
 include ':comp_im'
