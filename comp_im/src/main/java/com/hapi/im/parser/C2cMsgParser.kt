@@ -1,6 +1,6 @@
-package com.pince.im.parser
+package com.hapi.im.parser
 
-import com.pince.im.been.IMsgBean
+import com.hapi.im.been.IMsgBean
 import com.tencent.imsdk.TIMMessage
 
 interface C2cMsgParser {

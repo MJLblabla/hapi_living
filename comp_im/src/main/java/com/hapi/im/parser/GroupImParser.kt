@@ -1,6 +1,6 @@
-package com.pince.im.parser
+package com.hapi.im.parser
 
-import com.pince.im.been.GroupMsg
+import com.hapi.im.been.GroupMsg
 import com.tencent.imsdk.TIMMessage
 
 interface GroupImParser {

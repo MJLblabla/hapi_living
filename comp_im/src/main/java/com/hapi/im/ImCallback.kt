@@ -1,4 +1,4 @@
-package com.pince.im
+package com.hapi.im
 
 interface ImCallback {
     fun onSuc()

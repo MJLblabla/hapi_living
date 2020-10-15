@@ -1,4 +1,4 @@
-package com.pince.im.been;
+package com.hapi.im.been;
 
 import com.tencent.imsdk.TIMMessage;
 

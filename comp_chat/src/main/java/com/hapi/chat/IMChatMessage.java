@@ -1,6 +1,6 @@
 package com.hapi.chat;
 
-import com.pince.im.been.IMsgBean;
+import com.hapi.im.been.IMsgBean;
 import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMConversationType;
 import com.tencent.imsdk.TIMElem;

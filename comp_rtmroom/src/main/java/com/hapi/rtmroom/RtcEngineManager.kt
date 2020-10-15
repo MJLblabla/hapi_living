@@ -11,7 +11,7 @@ import io.agora.rtc.mediaio.MediaIO
 import io.agora.rtc.mediaio.TextureSource
 import java.io.File
 
-class RtcEngineManager {
+object RtcEngineManager {
 
     private var appId = ""
     private lateinit var context: Context

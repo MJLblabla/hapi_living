@@ -1,12 +1,6 @@
-package com.pince.im.parser;
+package com.hapi.im.parser;
 
-import android.text.TextUtils;
-
-import com.pince.im.ImMsgDispatcher;
-import com.pince.im.been.GroupMsg;
-import com.pince.im.been.IMsgBean;
-
-import org.jetbrains.annotations.NotNull;
+import com.hapi.im.been.IMsgBean;
 
 import java.util.HashMap;
 

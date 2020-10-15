@@ -6,14 +6,15 @@ import com.hapi.absroom.live.LivingRoomManager
 import com.hapi.asbroom.RoomSession
 import com.hapi.asbroom.RoomStatusMonitor
 import com.hipi.vm.BaseViewModel
-import com.pince.im.ImMsgDispatcher
-import com.pince.im.parser.ImActionMsgListener
-import com.pince.im.parser.ImGroupActionMsgListener
+import com.hapi.im.ImMsgDispatcher
+import com.hapi.im.parser.ImActionMsgListener
+import com.hapi.im.parser.ImGroupActionMsgListener
 
 abstract class AbsChannelVm(application: Application, bundle: Bundle?) :
     BaseViewModel(application), RoomStatusMonitor {
 
-    protected val channeMsgMonitor = ImGroupActionMsgListener()
+    protected val channeMsgMonitor =
+        ImGroupActionMsgListener()
     protected val systemMsgMonitor = ImActionMsgListener()
     protected val c2cMsgMonitor = ImActionMsgListener()
 

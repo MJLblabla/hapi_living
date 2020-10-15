@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RtmManager {
+object RtmManager {
 
 
     private val TAG = "RtmManager"

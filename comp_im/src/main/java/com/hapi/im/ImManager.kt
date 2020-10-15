@@ -1,4 +1,4 @@
-package com.pince.im
+package com.hapi.im
 
 import android.app.Application
 import android.text.TextUtils
@@ -68,24 +68,32 @@ object ImManager {
         })
     }
 
-    fun reLogin(imCallback:ImCallback?){
+    fun reLogin(imCallback: ImCallback?){
         if(!TextUtils.isEmpty(lastSign)){
-            login(lastUid, lastSign,imCallback)
+            login(
+                lastUid,
+                lastSign,
+                imCallback
+            )
         }
     }
     /**
      * 检查登录
      */
-     fun checkLogin(onlyNoticeError: ImCallback?=null,successBlock:ImManager.() -> Unit) {
+     fun checkLogin(onlyNoticeError: ImCallback?=null, successBlock: ImManager.() -> Unit) {
         if (!isLogin) {
-            login(lastUid, lastSign, object : ImCallback {
-                override fun onSuc() {
-                    successBlock.invoke(this@ImManager)
-                }
-                override fun onFail(code: Int, msg: String?) {
-                    onlyNoticeError?.onFail(code, msg)
-                }
-            })
+            login(
+                lastUid,
+                lastSign,
+                object : ImCallback {
+                    override fun onSuc() {
+                        successBlock.invoke(this@ImManager)
+                    }
+
+                    override fun onFail(code: Int, msg: String?) {
+                        onlyNoticeError?.onFail(code, msg)
+                    }
+                })
         } else {
             successBlock.invoke(this)
         }
@@ -93,7 +101,11 @@ object ImManager {
 
     fun checkLogin(call: ImCallback?=null) {
         if (!isLogin) {
-            login(lastUid, lastSign, call)
+            login(
+                lastUid,
+                lastSign,
+                call
+            )
         } else {
             call?.onSuc()
         }
@@ -106,8 +118,12 @@ object ImManager {
     fun sendC2cMessage(  chatId:String,msg:TIMMessage ,callback: ImCallback?){
         checkLogin(callback) {
             val conversation = TIMManager.getInstance().getConversation(
-                TIMConversationType.C2C, chatId)
-            conversation.sendMessage(msg, TIMValueCallBackWarp(callback))
+                TIMConversationType.C2C, chatId
+            )
+            conversation.sendMessage(
+                msg,
+                TIMValueCallBackWarp(callback)
+            )
         }
     }
 
@@ -147,7 +163,10 @@ object ImManager {
                 TIMConversationType.Group,
                 gropId
             )
-            con.sendOnlineMessage(msg,TIMValueCallBackWarp(callback))
+            con.sendOnlineMessage(
+                msg,
+                TIMValueCallBackWarp(callback)
+            )
         }
     }
     fun sendGroupMessage( gropId:String,msg:TIMMessage ,callback: ImCallback?){
@@ -157,7 +176,7 @@ object ImManager {
                 TIMConversationType.Group,
                 gropId
             )
-            con.sendMessage(msg,TIMValueCallBackWarp(callback))
+            con.sendMessage(msg, TIMValueCallBackWarp(callback))
         }
     }
 

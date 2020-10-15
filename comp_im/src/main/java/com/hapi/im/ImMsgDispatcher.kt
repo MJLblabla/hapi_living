@@ -1,7 +1,8 @@
-package com.pince.im
+package com.hapi.im
 
-import com.pince.im.been.GroupMsg
-import com.pince.im.been.IMsgBean
+import com.hapi.im.been.GroupMsg
+import com.hapi.im.been.IMsgBean
+import com.hapi.im.parser.*
 import com.pince.im.parser.*
 import com.tencent.imsdk.*
 import kotlinx.coroutines.Dispatchers

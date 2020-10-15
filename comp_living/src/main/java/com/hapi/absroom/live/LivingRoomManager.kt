@@ -4,8 +4,8 @@ import android.util.Log
 import com.hapi.asbroom.RoleType
 import com.hapi.asbroom.RoomSession
 import com.hipi.absrrom.AbsRoomManager
-import com.pince.im.ImCallback
-import com.pince.im.ImManager
+import com.hapi.im.ImCallback
+import com.hapi.im.ImManager
 import com.tencent.imsdk.TIMCallBack
 import com.tencent.imsdk.TIMGroupManager
 import com.tencent.imsdk.TIMValueCallBack
@@ -76,7 +76,8 @@ object LivingRoomManager : AbsRoomManager() {
             }
         }
 
-            ImManager.checkLogin(object :ImCallback{
+            ImManager.checkLogin(object :
+                ImCallback {
                 override fun onFail(code: Int, msg: String?) {
                     monitors.forEach {
                         it.onRoomJoinFail(code,roomSession)
