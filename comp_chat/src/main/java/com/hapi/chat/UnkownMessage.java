@@ -31,6 +31,6 @@ public class UnkownMessage extends IMChatMessage {
 
     @Override
     public String getAction() {
-        return ChatMsgType.UnkownMessage.getType();
+        return ChatMsgType.UNKOWN.getType();
     }
 }
