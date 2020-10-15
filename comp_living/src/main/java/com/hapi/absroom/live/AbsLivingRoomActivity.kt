@@ -136,6 +136,7 @@ abstract class AbsLivingRoomActivity<T : RoomSession> : BaseVmActivity(), RoomSt
             LivingRoomManager.closeRoom()
         }
         LivingRoomManager.removeMonitor(this)
+        LivingRoomManager.clear()
     }
 
     open fun initOtherView() {}

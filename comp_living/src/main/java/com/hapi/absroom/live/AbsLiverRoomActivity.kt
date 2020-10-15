@@ -33,6 +33,7 @@ abstract class AbsLiverRoomActivity <T : RoomSession> : BaseVmActivity(), RoomSt
             LivingRoomManager.closeRoom()
         }
         LivingRoomManager.removeMonitor(this)
+        LivingRoomManager.clear()
     }
 
 }

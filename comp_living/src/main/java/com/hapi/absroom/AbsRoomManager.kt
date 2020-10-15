@@ -38,6 +38,9 @@ abstract class AbsRoomManager {
         monitors.remove(monitor)
     }
 
+    fun clear(){
+        monitors.clear()
+    }
     protected fun dispatchEnterRoomChecked(roomSession: RoomSession) {
         this.roomSession = roomSession
         this.roleType = RoleType.Type_room_visitor
