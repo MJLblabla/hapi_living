@@ -777,6 +777,6 @@ class GroupMessageParser : GroupImParser {
 　　
 
 
-  [1]: http://git.7guoyouxi.com/android_repo/android_repo/raw/master/img/room_art.png
-  [2]: http://git.7guoyouxi.com/android_repo/android_repo/raw/master/img/func.png
-  [3]: http://git.7guoyouxi.com/android_repo/android_repo/raw/master/img/im.png
+  [1]: https://raw.githubusercontent.com/MJLblabla/hapi_living/master/room_art.png
+  [2]: https://raw.githubusercontent.com/MJLblabla/hapi_living/master/img/func.png
+  [3]: https://raw.githubusercontent.com/MJLblabla/hapi_living/master/im.png
