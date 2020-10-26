@@ -15,7 +15,6 @@
             <option value="$PROJECT_DIR$/comp_chat" />
             <option value="$PROJECT_DIR$/comp_im" />
             <option value="$PROJECT_DIR$/comp_living" />
-            <option value="$PROJECT_DIR$/comp_rtmroom" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
