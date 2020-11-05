@@ -1,4 +1,4 @@
-include ':comp_chat'
+//include ':comp_chat'
 
 include ':comp_living'
 include ':comp_im'

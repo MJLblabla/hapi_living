@@ -36,11 +36,11 @@ object ImManager {
 
 
     fun login(uid: String, sign: String, callback: ImCallback?) {
+        lastUid = uid
+        lastSign = sign
         TIMManager.getInstance().login(uid, sign, object : TIMCallBack {
             override fun onSuccess() {
                 isLogin = true
-                lastUid = uid
-                lastSign = sign
                 callback?.onSuc()
             }
 
