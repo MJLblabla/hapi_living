@@ -40,30 +40,33 @@ object ImMsgDispatcher {
         c2CimMsgListener.remove(imMsgListener)
     }
 
-    fun onNewMsg(msg: TIMMessage) {
-        GlobalScope.launch(Dispatchers.Main) {
+     fun onNewMsg(msg: TIMMessage) :Boolean{
+       // GlobalScope.launch(Dispatchers.Main) {
 
 
             when (msg.conversation?.type) {
 
                 TIMConversationType.System -> {
                     var asyncBeen: IMsgBean? = null
-                    val job = async {
+                //    val job = async {
                         sysImParsers.forEach {
                             asyncBeen = it.parse(msg)
                             if (asyncBeen !== null) {
                                 return@forEach
                             }
                         }
-                        asyncBeen
-                    }
+                        //asyncBeen
+                  //  }
 
-                    val been = job.await() ?: return@launch
-                    if (sysImMsgInterceptor?.onNewMsg(been!!) == true) {
-                        return@launch
+                    if(asyncBeen==null){
+                        return false
+                    }
+                //    val been = job.await() ?: return@launch
+                    if (sysImMsgInterceptor?.onNewMsg(asyncBeen!!) == true) {
+                        return true
                     }
                     systemMsgListener?.forEach {
-                        it.onNewMsg(been!!)
+                        it.onNewMsg(asyncBeen!!)
                     }
 
                 }
@@ -71,22 +74,24 @@ object ImMsgDispatcher {
                 TIMConversationType.Group -> {
 
                     var asyncBeen: GroupMsg? = null
-                    val job = async {
+                  //  val job = async {
                         goupImParsers.forEach {
                             asyncBeen = it.parseTIMElem(msg)
                             if (asyncBeen !== null) {
                                 return@forEach
                             }
                         }
-                        asyncBeen
+                    if(asyncBeen==null){
+                        return false
                     }
+                  //  }
 
-                    val been = job.await() ?: return@launch
-                    if (groupImMsgInterceptor?.onNewMsg(been!!) == true) {
-                        return@launch
+               //     val been = job.await() ?: return@launch
+                    if (groupImMsgInterceptor?.onNewMsg(asyncBeen!!) == true) {
+                        return true
                     }
                     groupImMsgLister?.forEach {
-                        it.onNewMsg(been!!)
+                        it.onNewMsg(asyncBeen!!)
                     }
 
 
@@ -96,7 +101,7 @@ object ImMsgDispatcher {
 //                    for (i in 0..msg.elementCount) {
 //                        val elem = msg.getElement(i)
 
-                    val job = async {
+                 //   val job = async {
                         var asyncBeen: IMsgBean? = null
                         c2cMsgParsers.forEach {
                             asyncBeen = it.parse(msg)
@@ -104,14 +109,16 @@ object ImMsgDispatcher {
                                 return@forEach
                             }
                         }
-                        asyncBeen
+                    if(asyncBeen==null){
+                        return false
                     }
-                    val been = job.await() ?: return@launch
-                    if (c2CimMsgInterceptor?.onNewMsg(been) == true) {
-                        return@launch
+                //    }
+                 //   val been = job.await() ?: return@launch
+                    if (c2CimMsgInterceptor?.onNewMsg(asyncBeen!!) == true) {
+                        return true
                     }
                     c2CimMsgListener.forEach {
-                        it.onNewMsg(been)
+                        it.onNewMsg(asyncBeen!!)
                     }
                 }
 
@@ -119,7 +126,9 @@ object ImMsgDispatcher {
 
                 }
             }
-        }
+
+         return true
+        //}
     }
 
 }

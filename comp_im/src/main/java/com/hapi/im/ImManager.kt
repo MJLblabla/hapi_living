@@ -24,10 +24,11 @@ object ImManager {
              * @param msgs 收到的新消息
              * @return 正常情况下，如果注册了多个listener, SDK会顺序回调到所有的listener。当碰到listener的回调返回true的时候，将终止继续回调后续的listener。
              */
+            var  isDeal =false
             msgs?.forEach { msg ->
-                ImMsgDispatcher.onNewMsg(msg)
+                isDeal=  ImMsgDispatcher.onNewMsg(msg)
             }
-            true
+            isDeal
         }
     }
 
